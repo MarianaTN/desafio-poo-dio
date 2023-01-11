@@ -37,7 +37,15 @@ public class Dev {
                 .sum();*/
     }
 
+    public void publicarNoForum(Bootcamp bootcamp, String texto){
+        Mensagem msg = new Mensagem(texto, this.nome);
+        bootcamp.adicionarForum(msg);
+    }
 
+    public void publicarRespostaNoForum(Bootcamp bootcamp, Publicacao publicacao, String texto){
+        Mensagem msg = new Mensagem(texto, this.nome);
+        bootcamp.adicionarRespostaForum(publicacao,msg);
+    }
     public String getNome() {
         return nome;
     }

@@ -13,7 +13,7 @@ public class Bootcamp {
     private final LocalDate dataFinal = dataInicial.plusDays(45);
     private Set<Dev> devsInscritos = new HashSet<>();
     private Set<Conteudo> conteudos = new LinkedHashSet<>();
-
+    private Set<Publicacao> forum = new LinkedHashSet<>();
 
     public String getNome() {
         return nome;
@@ -53,6 +53,22 @@ public class Bootcamp {
 
     public void setConteudos(Set<Conteudo> conteudos) {
         this.conteudos = conteudos;
+    }
+
+    public Set<Publicacao> getForum() {
+        return forum;
+    }
+
+    public void adicionarForum(Mensagem mensagem) {
+        Publicacao publicacao = new Publicacao();
+        publicacao.setMsg(mensagem);
+        this.forum.add(publicacao);
+    }
+    public void adicionarForum(Publicacao publicacao) {
+        this.forum.add(publicacao);
+    }
+    public void adicionarRespostaForum(Publicacao publicacao, Mensagem mensagem) {
+        publicacao.addRespostas(mensagem);
     }
 
     @Override
