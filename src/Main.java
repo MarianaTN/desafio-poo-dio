@@ -1,7 +1,4 @@
-import br.com.dio.desafio.dominio.Bootcamp;
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Dev;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
 
@@ -58,6 +55,16 @@ public class Main {
         System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
         System.out.println("XP:" + devJoao.calcularTotalXp());
 
+        System.out.println("-------------Forum----------");
+        devCamila.publicarNoForum(bootcamp,"Colocando uma duvida no forum");
+        Mensagem mensagem = new Mensagem("Duvida sobre Java Colletions",devCamila.getNome());
+
+        Publicacao publicacao = new Publicacao();
+        publicacao.setMsg(mensagem);
+        bootcamp.adicionarForum(publicacao);
+        devCamila.publicarRespostaNoForum(bootcamp,publicacao, "Verifique a aula da camila sobre colletions, irá te ajudar.");
+        System.out.println(bootcamp.getForum());
+        System.out.println(publicacao.toString());
     }
 
 }
